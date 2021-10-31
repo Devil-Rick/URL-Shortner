@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %} History {% endblock title %}
+
+{% block index %}
+<div>
+    <h1> </h1>
+    <h1 style="text-align: center;margin: 5rem;font-size: 4.5rem;font-weight: 800;color: DARKMAGENTA;"> HISTORY of URLS
+    </h1>
+</div>
+<div class="container my-5">
+    {% if url|length == 0 %}
+    <div class="alert alert-danger" role="alert">
+        <h3>Your Urls will be shown here</h3>
+    </div>
+    {% else %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">S.NO</th>
+                <th scope="col">Original Url</th>
+                <th scope="col">Shorten Url</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in url %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{i.long_url}}</td>
+                <td>{{i.short_url}}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+<div style="
+text-align: center;
+">
+    <a href="/delete" type="button" class="btn btn-outline-dark" style="
+    margin: 15px;
+    padding: 0.5rem 4.5rem;
+    font-size: 1.8rem;
+    border-radius: 50px;
+    ">Delete All</a>
+</div>
+
+{% endblock index %}

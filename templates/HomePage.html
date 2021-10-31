@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} Short URL {% endblock title %}
+
+
+{% block index %}
+<div>
+    <h1 style="text-align: center;margin: 5rem;font-size: 4.5rem;font-weight: 800;color: DARKMAGENTA;"> WELCOME TO URL
+        Shortner </h1>
+    <div style="
+    text-align: center;
+    font-size: 1.5rem;">
+        <form action="/home" method="POST">
+            <label for="url">
+                <h3 style="
+    font-size: 2.5rem;
+    font-weight: 700;
+">Enter the URL :</h3>
+            </label>
+            <input type="url" name="long_url" id="url" placeholder="https://example.com" pattern="https://.*" style="
+    margin: 20px;
+    padding: 0 40px;
+">
+            <br>
+            <input type="submit" class="btn btn-outline-dark" value="SUBMIT" style="
+    margin: 15px;
+    padding: 0.5rem 4.5rem;
+    font-size: 1.8rem;
+    border-radius: 50px;
+">
+        </form>
+    </div>
+
+</div>
+<div>
+    {% if url|length != 0 %}
+    <div style="
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 5rem 0;
+">
+        <input type="text" value="http://127.0.0.1:5000/{{url}}" id="myInput" size="30" style="
+        padding: 0 3rem;
+    ">
+
+        <!-- The button used to copy the text -->
+        <br>
+        <button class="btn btn-primary" onclick="myFunction()">Copy text</button>
+    </div>
+    {% endif %}
+</div>
+{% endblock index %}
